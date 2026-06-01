@@ -150,6 +150,114 @@ body{font-family:"DM Sans",sans-serif;background:var(--black);color:var(--white)
   padding: 0;
   flex-shrink: 0;
 }
+
+
+/* ── DUAL-SPORT SCOREBOARD ── */
+.sb-fab{position:fixed;bottom:24px;right:20px;background:linear-gradient(135deg,#1d4ed8,#f97316);color:white;border:none;border-radius:99px;padding:11px 20px;font-family:"DM Sans",sans-serif;font-size:13px;font-weight:600;cursor:pointer;z-index:100;display:flex;align-items:center;gap:8px;box-shadow:0 4px 16px rgba(29,78,216,.35);}
+.sb-fab:hover{opacity:.9;}
+.sb-fab-icons{display:flex;gap:2px;font-size:16px;line-height:1;}
+.sb-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.8);z-index:200;align-items:flex-end;justify-content:center;}
+.sb-overlay.open{display:flex;}
+.sb-sheet{background:#0d1117;border-radius:20px 20px 0 0;width:100%;max-width:580px;max-height:93vh;overflow:hidden;display:flex;flex-direction:column;}
+.sb-handle{width:40px;height:4px;background:rgba(255,255,255,.15);border-radius:99px;margin:12px auto 0;flex-shrink:0;}
+.sb-head{padding:14px 20px 10px;border-bottom:1px solid rgba(255,255,255,.07);flex-shrink:0;}
+.sb-head-top{display:flex;justify-content:space-between;align-items:flex-start;}
+.sb-player{font-family:"Bebas Neue",sans-serif;font-size:24px;letter-spacing:2px;color:white;line-height:1;}
+.sb-sub{font-size:11px;color:rgba(255,255,255,.4);font-family:"DM Sans",sans-serif;margin-top:2px;}
+.sb-close{background:rgba(255,255,255,.08);border:none;color:rgba(255,255,255,.5);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;}
+.sb-close:hover{background:rgba(255,255,255,.15);color:white;}
+.sb-body{overflow-y:auto;padding:16px 20px 24px;flex:1;}
+
+/* SPORT TABS */
+.sport-tabs{display:flex;gap:6px;margin-bottom:16px;}
+.sport-tab{flex:1;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:10px 8px;text-align:center;cursor:pointer;transition:all .2s;}
+.sport-tab.active-bball{background:rgba(249,115,22,.12);border-color:rgba(249,115,22,.4);}
+.sport-tab.active-soccer{background:rgba(34,197,94,.1);border-color:rgba(34,197,94,.35);}
+.sport-tab-icon{font-size:22px;display:block;margin-bottom:4px;}
+.sport-tab-label{font-family:"Bebas Neue",sans-serif;font-size:13px;letter-spacing:1px;color:rgba(255,255,255,.5);}
+.sport-tab.active-bball .sport-tab-label{color:#fb923c;}
+.sport-tab.active-soccer .sport-tab-label{color:#4ade80;}
+
+/* XP SECTION */
+.xp-card{border-radius:12px;padding:14px 16px;margin-bottom:14px;}
+.xp-card.bball{background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.2);}
+.xp-card.soccer{background:rgba(34,197,94,.07);border:1px solid rgba(34,197,94,.2);}
+.xp-card.overall{background:linear-gradient(135deg,rgba(29,78,216,.15),rgba(249,115,22,.1));border:1px solid rgba(255,255,255,.1);}
+.xp-top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:8px;}
+.xp-level{font-family:"Bebas Neue",sans-serif;font-size:32px;letter-spacing:1px;line-height:1;}
+.xp-level.bball{color:#fb923c;}
+.xp-level.soccer{color:#4ade80;}
+.xp-level.overall{color:white;}
+.xp-meta{text-align:right;}
+.xp-meta-label{font-size:10px;color:rgba(255,255,255,.4);font-family:"DM Sans",sans-serif;text-transform:uppercase;letter-spacing:.06em;}
+.xp-meta-val{font-size:13px;color:rgba(255,255,255,.6);font-family:"DM Sans",sans-serif;margin-top:1px;}
+.xp-rank{font-size:11px;color:rgba(255,255,255,.45);font-family:"DM Sans",sans-serif;margin-top:1px;}
+.xp-bar{background:rgba(255,255,255,.08);border-radius:99px;height:7px;overflow:hidden;margin-bottom:4px;}
+.xp-fill{height:100%;border-radius:99px;transition:width .6s ease;}
+.xp-fill.bball{background:linear-gradient(90deg,#ea580c,#fb923c);}
+.xp-fill.soccer{background:linear-gradient(90deg,#16a34a,#4ade80);}
+.xp-fill.overall{background:linear-gradient(90deg,#1d4ed8,#f97316);}
+.xp-next{font-size:10px;color:rgba(255,255,255,.3);font-family:"DM Sans",sans-serif;}
+
+/* STAT ROW */
+.stat-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:14px;}
+.stat-cell{background:#161f2e;border-radius:10px;padding:11px 8px;text-align:center;}
+.stat-num{font-family:"Bebas Neue",sans-serif;font-size:26px;letter-spacing:.5px;line-height:1;}
+.stat-lbl{font-size:9px;color:rgba(255,255,255,.4);font-family:"DM Sans",sans-serif;margin-top:3px;text-transform:uppercase;letter-spacing:.05em;}
+.stat-cell.c-orange .stat-num{color:#fb923c;}
+.stat-cell.c-green  .stat-num{color:#4ade80;}
+.stat-cell.c-blue   .stat-num{color:#60a5fa;}
+.stat-cell.c-purple .stat-num{color:#c084fc;}
+.stat-cell.c-gold   .stat-num{color:#fbbf24;}
+
+/* SPORT PANEL */
+.sport-panel{display:none;}
+.sport-panel.active{display:block;}
+
+/* RECORDS */
+.section-title{font-family:"Bebas Neue",sans-serif;font-size:13px;letter-spacing:1px;color:rgba(255,255,255,.4);text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.record-card{background:#161f2e;border-radius:10px;padding:12px 14px;margin-bottom:8px;}
+.record-top{display:flex;align-items:center;gap:10px;}
+.record-icon{font-size:20px;flex-shrink:0;}
+.record-meta{flex:1;min-width:0;}
+.record-name{font-size:13px;font-weight:500;color:rgba(255,255,255,.9);}
+.record-desc{font-size:11px;color:rgba(255,255,255,.4);margin-top:1px;}
+.record-pr{font-family:"Bebas Neue",sans-serif;font-size:20px;letter-spacing:.5px;flex-shrink:0;}
+.record-pr.set.bball{color:#fb923c;}
+.record-pr.set.soccer{color:#4ade80;}
+.record-pr.unset{color:rgba(255,255,255,.2);font-size:14px;}
+.record-log{display:flex;gap:6px;margin-top:8px;}
+.record-log input{flex:1;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:7px;padding:6px 10px;color:white;font-family:"DM Sans",sans-serif;font-size:12px;outline:none;}
+.record-log input:focus{border-color:rgba(249,115,22,.5);}
+.record-log input.soccer-inp:focus{border-color:rgba(34,197,94,.5);}
+.record-log-btn{color:white;border:none;border-radius:7px;padding:6px 14px;font-family:"Bebas Neue",sans-serif;font-size:13px;letter-spacing:.5px;cursor:pointer;white-space:nowrap;}
+.record-log-btn.bball{background:#ea580c;}
+.record-log-btn.soccer{background:#16a34a;}
+.record-log-btn:hover{opacity:.85;}
+
+/* WEEK BARS */
+.week-bars{margin-bottom:14px;}
+.week-bar-row{display:flex;align-items:center;gap:10px;margin-bottom:7px;}
+.week-bar-label{font-family:"Bebas Neue",sans-serif;font-size:13px;letter-spacing:.5px;color:rgba(255,255,255,.4);width:38px;flex-shrink:0;}
+.week-bar-track{flex:1;background:rgba(255,255,255,.06);border-radius:99px;height:6px;overflow:hidden;}
+.week-bar-fill{height:100%;border-radius:99px;transition:width .5s ease;background:linear-gradient(90deg,#1d4ed8,#f97316);}
+.week-bar-pct{font-family:"Bebas Neue",sans-serif;font-size:13px;color:rgba(255,255,255,.5);width:34px;text-align:right;flex-shrink:0;}
+.week-bar-row.complete .week-bar-label{color:#fbbf24;}
+.week-bar-row.complete .week-bar-pct{color:#fbbf24;}
+
+/* BADGES */
+.badges-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:8px;}
+.badge-tile{background:#161f2e;border-radius:10px;padding:10px 6px;text-align:center;transition:all .2s;border:1px solid transparent;}
+.badge-tile.earned{border-color:rgba(251,191,36,.3);background:rgba(251,191,36,.06);}
+.badge-tile.locked{opacity:.3;}
+.badge-emoji{font-size:22px;display:block;margin-bottom:4px;}
+.badge-name{font-size:9px;color:rgba(255,255,255,.55);font-family:"DM Sans",sans-serif;line-height:1.3;}
+.badge-tile.earned .badge-name{color:#fbbf24;}
+
+/* TOAST */
+.sb-toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(60px);background:#1d4ed8;color:white;padding:10px 22px;border-radius:99px;font-family:"Bebas Neue",sans-serif;font-size:15px;letter-spacing:.5px;text-transform:uppercase;transition:transform .35s cubic-bezier(.34,1.56,.64,1);z-index:300;white-space:nowrap;pointer-events:none;}
+.sb-toast.show{transform:translateX(-50%) translateY(0);}
+
 </style>
 </head>
 <body>
@@ -325,5 +433,561 @@ function loadQuote() {
   document.getElementById('quoteAttr').textContent = '— ' + q.attr;
 }
 loadQuote();
-restoreState();
-</script></body></html>
+
+const SB_KEY2 = 'pierson_sb_v2';
+function sbLoad(){try{return JSON.parse(localStorage.getItem(SB_KEY2))||{};}catch(e){return {};}}
+function sbSave(d){try{localStorage.setItem(SB_KEY2,JSON.stringify(d));}catch(e){}}
+let sbData = sbLoad();
+if(!sbData.records) sbData.records = {};
+if(!sbData.earned)  sbData.earned  = {};
+
+const BBALL_LEVELS = [
+  {min:0,   label:'Ball Boy',    next:80},
+  {min:80,  label:'Playground',  next:180},
+  {min:180, label:'JV Ready',    next:320},
+  {min:320, label:'Varsity',     next:500},
+  {min:500, label:'Division I',  next:750},
+  {min:750, label:'Draft Pick',  next:1100},
+  {min:1100,label:'Pro',         next:9999},
+];
+const SOCCER_LEVELS = [
+  {min:0,   label:'Sunday League', next:80},
+  {min:80,  label:'Academy',       next:180},
+  {min:180, label:'Reserve',       next:320},
+  {min:320, label:'First Team',    next:500},
+  {min:500, label:'Bundesliga',    next:750},
+  {min:750, label:'Champions Lg',  next:1100},
+  {min:1100,label:'World Cup',     next:9999},
+];
+const OVERALL_LEVELS = [
+  {min:0,    label:'Rookie',     next:150},
+  {min:150,  label:'Prospect',   next:350},
+  {min:350,  label:'Starter',    next:600},
+  {min:600,  label:'All-Star',   next:950},
+  {min:950,  label:'Elite',      next:1400},
+  {min:1400, label:'Legend',     next:9999},
+];
+
+const BADGES_DEF = [
+  {id:'day1',      emoji:'\u{1F45F}', name:'First Touch',    desc:'Complete your first day'},
+  {id:'week1',     emoji:'\u{1F525}', name:'Week 1 Done',    desc:'Finish all of Week 1'},
+  {id:'week2',     emoji:'\u{1F4AA}', name:'Week 2 Grind',   desc:'Finish all of Week 2'},
+  {id:'week3',     emoji:'\u26A1',    name:'Week 3 Warrior', desc:'Finish all of Week 3'},
+  {id:'week4',     emoji:'\u{1F3C6}', name:'Full Program',   desc:'Complete all 4 weeks'},
+  {id:'streak3',   emoji:'\u{1F5D3}', name:'Hat-Trick',      desc:'3 consecutive days done'},
+  {id:'streak7',   emoji:'\u{1F511}', name:'7-Day Lock',     desc:'7 consecutive days done'},
+  {id:'perfectwk', emoji:'\u2B50',    name:'Perfect Week',   desc:'All 6 days in one week'},
+  {id:'mikan30',   emoji:'\u{1F504}', name:'Mikan Machine',  desc:'30+ makes on Mikan drill'},
+  {id:'ft80',      emoji:'\u{1F3AF}', name:'Free Agent',     desc:'80%+ free throws under fatigue'},
+  {id:'callshot50',emoji:'\u{1F4DE}', name:'Called It',      desc:'50+ on Call Your Shot'},
+  {id:'make5low',  emoji:'\u{1F4A8}', name:'Pure Shooter',   desc:'Fewer than 5 sprints on Make 5'},
+  {id:'juggle15',  emoji:'\u{1F3AF}', name:'Juggler',        desc:'15+ juggle streak'},
+  {id:'juggle30',  emoji:'\u{1F300}', name:'Tekkers',        desc:'30+ juggle streak'},
+  {id:'strike10',  emoji:'\u{1F4A5}', name:'Sniper',         desc:'10+ on Power Strike Ladder'},
+  {id:'worldtour5',emoji:'\u{1F30D}', name:'World Tourer',   desc:'All 5 juggle world tour stations'},
+  {id:'finishing8',emoji:'\u26BD',    name:'Clinical',       desc:'8+ soccer finishing out of 10'},
+  {id:'allbball',  emoji:'\u{1F3C0}', name:'Baller',         desc:'PR in every basketball drill'},
+  {id:'allsoccer', emoji:'\u26BD',    name:'Full Kit',       desc:'PR in every soccer drill'},
+  {id:'legend',    emoji:'\u{1F451}', name:'Legend',         desc:'Earn 12 or more badges'},
+];
+
+function getLevel(xp, levels){
+  let lv=levels[0],idx=0;
+  for(let i=levels.length-1;i>=0;i--){if(xp>=levels[i].min){lv=levels[i];idx=i;break;}}
+  return {lv,idx};
+}
+
+function calcBballXP(){
+  const r=sbData.records;
+  let x=0;
+  if(r.mikan)      x+=Math.min(60,r.mikan*2);
+  if(r.ftpct)      x+=Math.min(60,Math.round(r.ftpct*0.8));
+  if(r.atw)        x+=r.atw*8;
+  if(r.make5!==undefined) x+=Math.max(0,30-r.make5);
+  if(r['s2f-bball']) x+=r['s2f-bball']*5;
+  if(r.callshot)   x+=Math.round(r.callshot*0.8);
+  if(r.vertical)   x+=20;
+  return x;
+}
+function calcSoccerXP(){
+  const r=sbData.records;
+  let x=0;
+  if(r.juggle)    x+=Math.min(60,r.juggle*2);
+  if(r.slalom)    x+=20;
+  if(r.strike)    x+=r.strike*6;
+  if(r.ladder)    x+=r.ladder*4;
+  if(r.finishing) x+=r.finishing*6;
+  if(r.jugvol)    x+=r.jugvol*4;
+  if(r.worldtour) x+=r.worldtour*12;
+  return x;
+}
+function calcTrainingXP(){
+  let x=0;
+  [1,2,3,4].forEach(w=>{['mon','tue','wed','thu','fri','sat'].forEach(d=>{if(state['day_w'+w+'_'+d])x+=10;});});
+  return x;
+}
+function calcDaysDone(){
+  let d=0;
+  [1,2,3,4].forEach(w=>{['mon','tue','wed','thu','fri','sat'].forEach(dy=>{if(state['day_w'+w+'_'+dy])d++;});});
+  return d;
+}
+function calcStreak(){
+  const days=['w1-mon','w1-tue','w1-wed','w1-thu','w1-fri','w1-sat','w2-mon','w2-tue','w2-wed','w2-thu','w2-fri','w2-sat','w3-mon','w3-tue','w3-wed','w3-thu','w3-fri','w3-sat','w4-mon','w4-tue','w4-wed','w4-thu','w4-fri','w4-sat'];
+  let mx=0,cur=0;
+  for(const d of days){const[wk,dy]=d.split('-');if(state['day_'+wk+'_'+dy]){cur++;mx=Math.max(mx,cur);}else cur=0;}
+  return mx;
+}
+function calcWeekPct2(w){
+  let d=0;['mon','tue','wed','thu','fri','sat'].forEach(dy=>{if(state['day_w'+w+'_'+dy])d++;});return Math.round((d/6)*100);
+}
+
+function checkBadges(){
+  const r=sbData.records,e=sbData.earned;
+  const days=calcDaysDone(),streak=calcStreak();
+  if(days>=1)              e.day1=true;
+  if(calcWeekPct2(1)===100)e.week1=true;
+  if(calcWeekPct2(2)===100)e.week2=true;
+  if(calcWeekPct2(3)===100)e.week3=true;
+  if(calcWeekPct2(4)===100)e.week4=true;
+  if(streak>=3)            e.streak3=true;
+  if(streak>=7)            e.streak7=true;
+  for(let w=1;w<=4;w++){if(calcWeekPct2(w)===100){e.perfectwk=true;break;}}
+  if((r.mikan||0)>=30)           e.mikan30=true;
+  if((r.ftpct||0)>=80)           e.ft80=true;
+  if((r.callshot||0)>=50)        e.callshot50=true;
+  if(r.make5!==undefined&&r.make5<5) e.make5low=true;
+  if((r.juggle||0)>=15)          e.juggle15=true;
+  if((r.juggle||0)>=30)          e.juggle30=true;
+  if((r.strike||0)>=10)          e.strike10=true;
+  if((r.worldtour||0)>=5)        e.worldtour5=true;
+  if((r.finishing||0)>=8)        e.finishing8=true;
+  const bk=['mikan','ftpct','atw','make5','s2f-bball','callshot','vertical'];
+  if(bk.every(k=>r[k]!==undefined)) e.allbball=true;
+  const sk=['juggle','slalom','strike','ladder','finishing','jugvol','worldtour'];
+  if(sk.every(k=>r[k]!==undefined)) e.allsoccer=true;
+  if(Object.keys(e).length>=12)  e.legend=true;
+  sbData.earned=e;sbSave(sbData);
+  return e;
+}
+
+function renderBadges(earned){
+  const grid=document.getElementById('badgesGrid');
+  if(!grid)return;
+  grid.innerHTML=BADGES_DEF.map(b=>{
+    const got=!!earned[b.id];
+    return '<div class="badge-tile '+(got?'earned':'locked')+'" title="'+b.desc+'"><span class="badge-emoji">'+b.emoji+'</span><div class="badge-name">'+b.name+'</div></div>';
+  }).join('');
+}
+
+function setPR(id,suf,low){
+  const el=document.getElementById('pr-'+id);if(!el)return;
+  const v=sbData.records[id];
+  if(v!==undefined){el.textContent=v+(suf||'');el.classList.add('set');el.classList.remove('unset');}
+  else{el.textContent='—';el.classList.remove('set');el.classList.add('unset');}
+}
+
+function renderLv(xp,levels,lvId,rankId,xpId,barId,nextId){
+  const {lv,idx}=getLevel(xp,levels);
+  const s=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v;};
+  s(lvId,idx+1);s(rankId,lv.label);s(xpId,xp);
+  const pct=lv.next===9999?100:Math.min(100,Math.round(((xp-lv.min)/(lv.next-lv.min))*100));
+  const b=document.getElementById(barId);if(b)b.style.width=pct+'%';
+  const n=document.getElementById(nextId);if(n)n.textContent=lv.next===9999?'Max level!':((lv.next-xp)+' XP to next level');
+}
+
+function updateSB(){
+  const bxp=calcBballXP(),sxp=calcSoccerXP(),txp=calcTrainingXP(),tot=bxp+sxp+txp;
+  renderLv(tot,OVERALL_LEVELS,'sbOverallLevel','sbOverallRank','sbTotalXP','sbOverallBar','sbOverallNext');
+  renderLv(bxp,BBALL_LEVELS,'sbBballLevel','sbBballRank','sbBballXP','sbBballBar','sbBballNext');
+  renderLv(sxp,SOCCER_LEVELS,'sbSoccerLevel','sbSoccerRank','sbSoccerXP','sbSoccerBar','sbSoccerNext');
+  const days=calcDaysDone(),streak=calcStreak(),earned=checkBadges(),bc=Object.keys(earned).length;
+  const s=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v;};
+  s('sbDaysDone',days);s('sbStreak',streak);s('sbBadgeCount',bc);
+  for(let w=1;w<=4;w++){
+    const p=calcWeekPct2(w);
+    const f=document.getElementById('wfill-'+w);if(f)f.style.width=p+'%';
+    s('wpct-'+w,p+'%');
+    const row=document.getElementById('wrow-'+w);if(row)row.classList.toggle('complete',p===100);
+  }
+  const r=sbData.records;
+  s('sbMikanPR',r.mikan!==undefined?r.mikan:'—');
+  s('sbFTPct',r.ftpct!==undefined?r.ftpct+'%':'—');
+  s('sbAtWPR',r.atw!==undefined?r.atw+'/10':'—');
+  s('sbJugglePR',r.juggle!==undefined?r.juggle:'—');
+  s('sbStrikePR',r.strike!==undefined?r.strike+'/12':'—');
+  s('sbSlalomPR',r.slalom!==undefined?r.slalom+'s':'—');
+  const prs=[{id:'mikan',sf:'',lo:false},{id:'ftpct',sf:'%',lo:false},{id:'atw',sf:'/10',lo:false},{id:'make5',sf:' spr',lo:true},{id:'s2f-bball',sf:'/12',lo:false},{id:'callshot',sf:'/60',lo:false},{id:'vertical',sf:'',lo:false},{id:'juggle',sf:'',lo:false},{id:'slalom',sf:'s',lo:true},{id:'strike',sf:'/12',lo:false},{id:'ladder',sf:'',lo:false},{id:'finishing',sf:'/10',lo:false},{id:'jugvol',sf:'pts',lo:false},{id:'worldtour',sf:'/5',lo:false}];
+  prs.forEach(p=>setPR(p.id,p.sf,p.lo));
+  const pname=state['playerName']||'PIERSON';
+  s('sbPlayerName',pname.toUpperCase());
+  renderBadges(earned);
+}
+
+function logRecord(id,inputId,lowerIsBetter,sport){
+  const inp=document.getElementById(inputId);
+  const raw=inp.value.trim();if(!raw){showSBToast('Enter a value first');return;}
+  const num=parseFloat(raw);
+  const toStore=isNaN(num)?raw:num;
+  const existing=sbData.records[id];
+  let better=existing===undefined;
+  if(!better){if(lowerIsBetter){better=parseFloat(raw)<parseFloat(existing);}else{better=!isNaN(num)&&num>parseFloat(existing);}}
+  if(better){sbData.records[id]=toStore;sbSave(sbData);showSBToast('New personal record! \uD83C\uDF89');}
+  else{showSBToast('Logged. Keep pushing.');}
+  inp.value='';updateSB();
+}
+
+let _activeSport='bball';
+function switchSport(sp){
+  _activeSport=sp;
+  document.querySelectorAll('.sport-tab').forEach(t=>{t.className='sport-tab';});
+  const at=document.getElementById('tab-'+sp);if(at)at.classList.add('active-'+sp);
+  document.querySelectorAll('.sport-panel').forEach(p=>p.classList.remove('active'));
+  const ap=document.getElementById('panel-'+sp);if(ap)ap.classList.add('active');
+}
+function openSB(){updateSB();document.getElementById('sbOverlay').classList.add('open');}
+function closeSB(){document.getElementById('sbOverlay').classList.remove('open');}
+function sbOverlayClick(e){if(e.target===document.getElementById('sbOverlay'))closeSB();}
+function showSBToast(msg){const t=document.getElementById('sbToast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2400);}
+const _omD=markDay;
+function markDay(week,day){_omD(week,day);setTimeout(updateSB,80);}
+
+setTimeout(updateSB,150);
+</script>
+
+<button class="sb-fab" onclick="openSB()">
+  <span class="sb-fab-icons">🏀⚽</span> Scoreboard
+</button>
+
+<div class="sb-overlay" id="sbOverlay" onclick="sbOverlayClick(event)">
+  <div class="sb-sheet" onclick="event.stopPropagation()">
+    <div class="sb-handle"></div>
+    <div class="sb-head">
+      <div class="sb-head-top">
+        <div>
+          <div class="sb-player" id="sbPlayerName">PIERSON</div>
+          <div class="sb-sub">Summer Training · Weeks 1–4</div>
+        </div>
+        <button class="sb-close" onclick="closeSB()">&#215;</button>
+      </div>
+    </div>
+    <div class="sb-body">
+
+      <!-- OVERALL XP -->
+      <div class="xp-card overall">
+        <div class="xp-top">
+          <div>
+            <div class="xp-meta-label">Overall Level</div>
+            <div class="xp-level overall" id="sbOverallLevel">1</div>
+            <div class="xp-rank" id="sbOverallRank">Rookie</div>
+          </div>
+          <div class="xp-meta" style="text-align:right">
+            <div class="xp-meta-label">Total XP</div>
+            <div class="xp-meta-val"><span id="sbTotalXP">0</span> XP</div>
+          </div>
+        </div>
+        <div class="xp-bar"><div class="xp-fill overall" id="sbOverallBar" style="width:0%"></div></div>
+        <div class="xp-next" id="sbOverallNext">100 XP to next level</div>
+      </div>
+
+      <!-- OVERALL STATS -->
+      <div class="stat-row">
+        <div class="stat-cell c-gold"><div class="stat-num" id="sbDaysDone">0</div><div class="stat-lbl">Days Done</div></div>
+        <div class="stat-cell c-blue"><div class="stat-num" id="sbStreak">0</div><div class="stat-lbl">Best Streak</div></div>
+        <div class="stat-cell c-purple"><div class="stat-num" id="sbBadgeCount">0</div><div class="stat-lbl">Badges</div></div>
+      </div>
+
+      <!-- WEEK BARS -->
+      <div class="week-bars">
+        <div class="section-title">📅 Week Progress</div>
+        <div class="week-bar-row" id="wrow-1"><div class="week-bar-label">Wk 1</div><div class="week-bar-track"><div class="week-bar-fill" id="wfill-1" style="width:0%"></div></div><div class="week-bar-pct" id="wpct-1">0%</div></div>
+        <div class="week-bar-row" id="wrow-2"><div class="week-bar-label">Wk 2</div><div class="week-bar-track"><div class="week-bar-fill" id="wfill-2" style="width:0%"></div></div><div class="week-bar-pct" id="wpct-2">0%</div></div>
+        <div class="week-bar-row" id="wrow-3"><div class="week-bar-label">Wk 3</div><div class="week-bar-track"><div class="week-bar-fill" id="wfill-3" style="width:0%"></div></div><div class="week-bar-pct" id="wpct-3">0%</div></div>
+        <div class="week-bar-row" id="wrow-4"><div class="week-bar-label">Wk 4</div><div class="week-bar-track"><div class="week-bar-fill" id="wfill-4" style="width:0%"></div></div><div class="week-bar-pct" id="wpct-4">0%</div></div>
+      </div>
+
+      <!-- SPORT TABS -->
+      <div class="sport-tabs">
+        <div class="sport-tab active-bball" id="tab-bball" onclick="switchSport('bball')">
+          <span class="sport-tab-icon">🏀</span>
+          <div class="sport-tab-label">Basketball</div>
+        </div>
+        <div class="sport-tab" id="tab-soccer" onclick="switchSport('soccer')">
+          <span class="sport-tab-icon">⚽</span>
+          <div class="sport-tab-label">Soccer</div>
+        </div>
+      </div>
+
+      <!-- BASKETBALL PANEL -->
+      <div class="sport-panel active" id="panel-bball">
+        <div class="xp-card bball">
+          <div class="xp-top">
+            <div>
+              <div class="xp-meta-label">Basketball Level</div>
+              <div class="xp-level bball" id="sbBballLevel">1</div>
+              <div class="xp-rank" id="sbBballRank">Ball Boy</div>
+            </div>
+            <div class="xp-meta">
+              <div class="xp-meta-label">Bball XP</div>
+              <div class="xp-meta-val"><span id="sbBballXP">0</span> XP</div>
+            </div>
+          </div>
+          <div class="xp-bar"><div class="xp-fill bball" id="sbBballBar" style="width:0%"></div></div>
+          <div class="xp-next" id="sbBballNext">100 XP to next level</div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-cell c-orange"><div class="stat-num" id="sbMikanPR">—</div><div class="stat-lbl">Mikan PR</div></div>
+          <div class="stat-cell c-orange"><div class="stat-num" id="sbFTPct">—</div><div class="stat-lbl">FT % PR</div></div>
+          <div class="stat-cell c-orange"><div class="stat-num" id="sbAtWPR">—</div><div class="stat-lbl">ATW Score</div></div>
+        </div>
+        <div class="section-title">🏀 Basketball Records</div>
+
+        <div class="record-card" id="rec-mikan">
+          <div class="record-top">
+            <div class="record-icon">🔄</div>
+            <div class="record-meta">
+              <div class="record-name">Mikan Drill</div>
+              <div class="record-desc">Makes in 60 seconds (both sides alternating)</div>
+            </div>
+            <div class="record-pr bball" id="pr-mikan">—</div>
+          </div>
+          <div class="record-log">
+            <input type="number" id="inp-mikan" placeholder="e.g. 24 makes" min="0"/>
+            <button class="record-log-btn bball" onclick="logRecord('mikan','inp-mikan',false,'bball')">Log PR</button>
+          </div>
+        </div>
+
+        <div class="record-card">
+          <div class="record-top">
+            <div class="record-icon">🎯</div>
+            <div class="record-meta">
+              <div class="record-name">Free Throw Percentage</div>
+              <div class="record-desc">Best % under fatigue (out of 10 shots)</div>
+            </div>
+            <div class="record-pr bball" id="pr-ftpct">—</div>
+          </div>
+          <div class="record-log">
+            <input type="number" id="inp-ftpct" placeholder="e.g. 70" min="0" max="100"/>
+            <button class="record-log-btn bball" onclick="logRecord('ftpct','inp-ftpct',false,'bball')">Log PR</button>
+          </div>
+        </div>
+
+        <div class="record-card">
+          <div class="record-top">
+            <div class="record-icon">🌎</div>
+            <div class="record-meta">
+              <div class="record-name">Around the World</div>
+              <div class="record-desc">Best score out of 10 (5 spots × 2pts)</div>
+            </div>
+            <div class="record-pr bball" id="pr-atw">—</div>
+          </div>
+          <div class="record-log">
+            <input type="number" id="inp-atw" placeholder="Score / 10" min="0" max="10"/>
+            <button class="record-log-btn bball" onclick="logRecord('atw','inp-atw',false,'bball')">Log PR</button>
+          </div>
+        </div>
+
+        <div class="record-card">
+          <div class="record-top">
+            <div class="record-icon">💨</div>
+            <div class="record-meta">
+              <div class="record-name">Make 5 Sprint – Total Sprints</div>
+              <div class="record-desc">Fewest sprints = best shooting (lower is better)</div>
+            </div>
+            <div class="record-pr bball" id="pr-make5">—</div>
+          </div>
+          <div class="record-log">
+            <input type="number" id="inp-make5" placeholder="Sprint count" min="0"/>
+            <button class="record-log-btn bball" onclick="logRecord('make5','inp-make5',true,'bball')">Log PR</button>
+          </div>
+        </div>
+
+        <div class="record-card">
+          <div class="record-top">
+            <div class="record-icon">🚀</div>
+            <div class="record-meta">
+              <div class="record-name">Sprint to Finish</div>
+              <div class="record-desc">Makes out of 12 at full speed</div>
+            </div>
+            <div class="record-pr bball" id="pr-s2f-bball">—</div>
+          </div>
+          <div class="record-log">
+            <input type="number" id="inp-s2f-bball" placeholder="Makes / 12" min="0" max="12"/>
+            <button class="record-log-btn bball" onclick="logRecord('s2f-bball','inp-s2f-bball',false,'bball')">Log PR</button>
+          </div>
+        </div>
+
+        <div class="record-card">
+          <div class="record-top">
+            <div class="record-icon">📞</div>
+            <div class="record-meta">
+              <div class="record-name">Call Your Shot Score</div>
+              <div class="record-desc">Best score out of 60 (20 swings)</div>
+            </div>
+            <div class="record-pr bball" id="pr-callshot">—</div>
+          </div>
+          <div class="record-log">
+            <input type="number" id="inp-callshot" placeholder="Score / 60" min="0" max="60"/>
+            <button class="record-log-btn bball" onclick="logRecord('callshot','inp-callshot',false,'bball')">Log PR</button>
+          </div>
+        </div>
+
+        <div class="record-card">
+          <div class="record-top">
+            <div class="record-icon">⬆️</div>
+            <div class="record-meta">
+              <div class="record-name">Vertical Jump</div>
+              <div class="record-desc">Wall marker height (note units)</div>
+            </div>
+            <div class="record-pr bball" id="pr-vertical">—</div>
+          </div>
+          <div class="record-log">
+            <input type="text" id="inp-vertical" placeholder='e.g. 24" or Week 2 mark'/>
+            <button class="record-log-btn bball" onclick="logRecord('vertical','inp-vertical',false,'bball')">Log PR</button>
+          </div>
+        </div>
+
+      </div><!-- /panel-bball -->
+
+      <!-- SOCCER PANEL -->
+      <div class="sport-panel" id="panel-soccer">
+        <div class="xp-card soccer">
+          <div class="xp-top">
+            <div>
+              <div class="xp-meta-label">Soccer Level</div>
+              <div class="xp-level soccer" id="sbSoccerLevel">1</div>
+              <div class="xp-rank" id="sbSoccerRank">Sunday League</div>
+            </div>
+            <div class="xp-meta">
+              <div class="xp-meta-label">Soccer XP</div>
+              <div class="xp-meta-val"><span id="sbSoccerXP">0</span> XP</div>
+            </div>
+          </div>
+          <div class="xp-bar"><div class="xp-fill soccer" id="sbSoccerBar" style="width:0%"></div></div>
+          <div class="xp-next" id="sbSoccerNext">100 XP to next level</div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-cell c-green"><div class="stat-num" id="sbJugglePR">—</div><div class="stat-lbl">Juggle PR</div></div>
+          <div class="stat-cell c-green"><div class="stat-num" id="sbStrikePR">—</div><div class="stat-lbl">Strike /12</div></div>
+          <div class="stat-cell c-green"><div class="stat-num" id="sbSlalomPR">—</div><div class="stat-lbl">Slalom PR</div></div>
+        </div>
+        <div class="section-title">⚽ Soccer Records</div>
+
+        <div class="record-card">
+          <div class="record-top">
+            <div class="record-icon">🎯</div>
+            <div class="record-meta">
+              <div class="record-name">Juggling Streak</div>
+              <div class="record-desc">Most consecutive juggles without a drop</div>
+            </div>
+            <div class="record-pr soccer" id="pr-juggle">—</div>
+          </div>
+          <div class="record-log">
+            <input class="soccer-inp" type="number" id="inp-juggle" placeholder="e.g. 15" min="0"/>
+            <button class="record-log-btn soccer" onclick="logRecord('juggle','inp-juggle',false,'soccer')">Log PR</button>
+          </div>
+        </div>
+
+        <div class="record-card">
+          <div class="record-top">
+            <div class="record-icon">⚡</div>
+            <div class="record-meta">
+              <div class="record-name">Slalom Time Trial</div>
+              <div class="record-desc">Fastest cone course run (lower is better)</div>
+            </div>
+            <div class="record-pr soccer" id="pr-slalom">—</div>
+          </div>
+          <div class="record-log">
+            <input class="soccer-inp" type="text" id="inp-slalom" placeholder="e.g. 8.4 sec"/>
+            <button class="record-log-btn soccer" onclick="logRecord('slalom','inp-slalom',true,'soccer')">Log PR</button>
+          </div>
+        </div>
+
+        <div class="record-card">
+          <div class="record-top">
+            <div class="record-icon">💥</div>
+            <div class="record-meta">
+              <div class="record-name">Power Strike Ladder</div>
+              <div class="record-desc">Best score across 4 distances (out of 12)</div>
+            </div>
+            <div class="record-pr soccer" id="pr-strike">—</div>
+          </div>
+          <div class="record-log">
+            <input class="soccer-inp" type="number" id="inp-strike" placeholder="Score / 12" min="0" max="12"/>
+            <button class="record-log-btn soccer" onclick="logRecord('strike','inp-strike',false,'soccer')">Log PR</button>
+          </div>
+        </div>
+
+        <div class="record-card">
+          <div class="record-top">
+            <div class="record-icon">🪜</div>
+            <div class="record-meta">
+              <div class="record-name">Juggling Ladder</div>
+              <div class="record-desc">Highest rung before a missed juggle</div>
+            </div>
+            <div class="record-pr soccer" id="pr-ladder">—</div>
+          </div>
+          <div class="record-log">
+            <input class="soccer-inp" type="number" id="inp-ladder" placeholder="e.g. 7" min="0"/>
+            <button class="record-log-btn soccer" onclick="logRecord('ladder','inp-ladder',false,'soccer')">Log PR</button>
+          </div>
+        </div>
+
+        <div class="record-card">
+          <div class="record-top">
+            <div class="record-icon">🥅</div>
+            <div class="record-meta">
+              <div class="record-name">Soccer Finishing Accuracy</div>
+              <div class="record-desc">Makes out of 10 finishing runs at full speed</div>
+            </div>
+            <div class="record-pr soccer" id="pr-finishing">—</div>
+          </div>
+          <div class="record-log">
+            <input class="soccer-inp" type="number" id="inp-finishing" placeholder="Makes / 10" min="0" max="10"/>
+            <button class="record-log-btn soccer" onclick="logRecord('finishing','inp-finishing',false,'soccer')">Log PR</button>
+          </div>
+        </div>
+
+        <div class="record-card">
+          <div class="record-top">
+            <div class="record-icon">🏹</div>
+            <div class="record-meta">
+              <div class="record-name">Juggle + Volley Score</div>
+              <div class="record-desc">Points from juggle-to-volley game</div>
+            </div>
+            <div class="record-pr soccer" id="pr-jugvol">—</div>
+          </div>
+          <div class="record-log">
+            <input class="soccer-inp" type="number" id="inp-jugvol" placeholder="Your score" min="0"/>
+            <button class="record-log-btn soccer" onclick="logRecord('jugvol','inp-jugvol',false,'soccer')">Log PR</button>
+          </div>
+        </div>
+
+        <div class="record-card">
+          <div class="record-top">
+            <div class="record-icon">🌍</div>
+            <div class="record-meta">
+              <div class="record-name">Juggle World Tour</div>
+              <div class="record-desc">Furthest station completed (1–5 = R-foot, L-foot, R-thigh, L-thigh, Head)</div>
+            </div>
+            <div class="record-pr soccer" id="pr-worldtour">—</div>
+          </div>
+          <div class="record-log">
+            <input class="soccer-inp" type="number" id="inp-worldtour" placeholder="Station reached (1–5)" min="1" max="5"/>
+            <button class="record-log-btn soccer" onclick="logRecord('worldtour','inp-worldtour',false,'soccer')">Log PR</button>
+          </div>
+        </div>
+
+      </div><!-- /panel-soccer -->
+
+      <!-- BADGES -->
+      <div style="margin-top:14px;">
+        <div class="section-title">🏅 Badges</div>
+        <div class="badges-grid" id="badgesGrid"></div>
+      </div>
+
+    </div><!-- /sb-body -->
+  </div>
+</div>
+<div class="sb-toast" id="sbToast"></div>
+
+</body></html>
