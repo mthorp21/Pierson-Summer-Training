@@ -106,8 +106,8 @@ body{font-family:"DM Sans",sans-serif;background:var(--black);color:var(--white)
 .saved-ind{display:inline-block;margin-left:8px;font-size:11px;color:#6ee7b7;opacity:0;transition:opacity .3s;font-family:"DM Sans",sans-serif;}
 .mark-day-btn{width:100%;margin-top:14px;padding:12px;border-radius:var(--rs);border:2px solid var(--orange);background:transparent;color:var(--orange);font-family:"Bebas Neue",sans-serif;font-size:16px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all .2s;}
 .mark-day-btn:hover,.mark-day-btn.done{background:var(--orange);color:white;}
-.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--orange);color:white;padding:10px 24px;border-radius:99px;font-family:"Bebas Neue",sans-serif;font-size:16px;letter-spacing:1px;text-transform:uppercase;transition:transform .35s cubic-bezier(.34,1.56,.64,1);z-index:999;white-space:nowrap;}
-.toast.show{transform:translateX(-50%) translateY(0);}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(160px);visibility:hidden;background:var(--orange);color:white;padding:10px 24px;border-radius:99px;font-family:"Bebas Neue",sans-serif;font-size:16px;letter-spacing:1px;text-transform:uppercase;transition:transform .35s cubic-bezier(.34,1.56,.64,1);z-index:999;white-space:nowrap;}
+.toast.show{transform:translateX(-50%) translateY(0);visibility:visible;}
 
 .quote-bar {
   background: linear-gradient(90deg, rgba(37,99,200,0.15), rgba(249,115,22,0.12));
@@ -255,8 +255,8 @@ body{font-family:"DM Sans",sans-serif;background:var(--black);color:var(--white)
 .badge-tile.earned .badge-name{color:#fbbf24;}
 
 /* TOAST */
-.sb-toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(60px);background:#1d4ed8;color:white;padding:10px 22px;border-radius:99px;font-family:"Bebas Neue",sans-serif;font-size:15px;letter-spacing:.5px;text-transform:uppercase;transition:transform .35s cubic-bezier(.34,1.56,.64,1);z-index:300;white-space:nowrap;pointer-events:none;}
-.sb-toast.show{transform:translateX(-50%) translateY(0);}
+.sb-toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(160px);visibility:hidden;background:#1d4ed8;color:white;padding:10px 22px;border-radius:99px;font-family:"Bebas Neue",sans-serif;font-size:15px;letter-spacing:.5px;text-transform:uppercase;transition:transform .35s cubic-bezier(.34,1.56,.64,1);z-index:300;white-space:nowrap;pointer-events:none;}
+.sb-toast.show{transform:translateX(-50%) translateY(0);visibility:visible;}
 
 </style>
 </head>
